@@ -23,7 +23,8 @@ const PersonForm = ({ setMessage, persons, newName, newNumber, setNewName, setNe
 
                         })
                         .catch(error => {
-                            setMessage(`${newName} has already been removed from server`)
+                            setMessage(`${newName} is too short, not a string or number is in wrong format. Please write 
+                                more than three letters in name and number format xx-xxxxxxx`)
                             setTimeout(() => {
                                 setMessage('')
                             }, 3000)
