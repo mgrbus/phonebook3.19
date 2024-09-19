@@ -1,5 +1,6 @@
 import axios from 'axios'
 const baseUrl = '/api/persons'
+const { setMessage } = '../App.jsx'
 
 const getAll = () => {
     const request = axios.get(baseUrl)
@@ -9,7 +10,8 @@ const getAll = () => {
 const create = newObject => {
     const request = axios.post(baseUrl, newObject)
     return request.then(response => response.data)
-    .catch(error=>{alert(error.response.data.error)})
+    .catch(error=>{setMessage(error.response.data.error)
+    })
 }
 
 const update = (id,newObject) => {

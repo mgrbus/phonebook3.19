@@ -27,8 +27,7 @@ const PersonForm = ({ setMessage, persons, newName, newNumber, setNewName, setNe
                                 more than three letters in name and number format xx-xxxxxxx`)
                             setTimeout(() => {
                                 setMessage('')
-                            }, 3000)
-                            setPersons(persons.filter(person => person.id !== p.id))
+                            }, 6000)
                         })
                     setNewName('')
                     setNewNumber('')
@@ -50,11 +49,17 @@ const PersonForm = ({ setMessage, persons, newName, newNumber, setNewName, setNe
                     setNewNumber('')
                 })
                 .catch(error => {
-                    setMessage('mijsu')
+                    setMessage(`Person validation failed: name ${newName} is shorter than minumum allowed length
+                        , not a string, or number is in wrong format`)
+                    setTimeout(() => {
+                        setMessage('')
+                    }, 5000)
                 })
+            setNewName('')
+            setNewNumber('')
+
         }
     }
-
 
     return (
         <form onSubmit={addName}>
